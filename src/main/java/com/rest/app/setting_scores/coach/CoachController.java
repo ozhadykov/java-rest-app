@@ -5,15 +5,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class DemoController {
+public class CoachController {
 
     // define a private field for the depepndency
     private Coach myCoach;
 
     // define a constructor for dependency injection
     @Autowired
-    public DemoController(Coach theCoach) {
-        myCoach = theCoach;
+    public void setCoach(Coach coach) {
+        myCoach = coach;
     }
 
     @GetMapping("/dailyworkout")
