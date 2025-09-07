@@ -1,5 +1,6 @@
-package com.rest.app.setting_scores;
+package com.rest.app.util;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -7,10 +8,12 @@ import org.springframework.web.bind.annotation.*;
 public class ScoreController {
 
     static Score score = new Score(30, 20, 10);
+    @Value("${score.text}")
+    private String testText;
 
     @GetMapping("/health-check")
     public String getHealthCheck() {
-        return "System is up and running";
+        return "System is up and running" + testText;
     }
 
     @GetMapping("/score")
