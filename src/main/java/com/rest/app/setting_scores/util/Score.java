@@ -1,4 +1,4 @@
-package com.rest.app.util;
+package com.rest.app.setting_scores.util;
 
 public class Score {
 
