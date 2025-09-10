@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rock Paper Scissors App!</title>
+</head>
+<body>
+    <h1>Which one will it be</h1>
+    <br>
+    <div class="buttons-container">
+        <a href="#" onclick="playRoshambo('wins')">rock</a> &nbsp;
+        <a href="#" onclick="playRoshambo('ties')">paper</a> &nbsp;
+        <a href="#" onclick="playRoshambo('loses')">sicssors</a> &nbsp;
+    </div>
+    <hr>
+    <div id="results">
+
+    </div>
+    <span id="wins"></span>
+    <span id="loses"></span>
+    <span id="ties"></span>
+
+    <script>
+        const playRoshambo = async (cleintGesture) => {
+            const url = 'http://localhost:8080/score/' + cleintGesture
+
+            const response = await fetch(url, {method: 'POST'})
+            const data = await response.json()
+
+            console.log(data)
+
+            document.getElementById('wins').innerText = data.wins
+            document.getElementById('loses').innerText = data.loses
+            document.getElementById('ties').innerText = data.ties
+        }
+    </script>
+</body>
+</html>
