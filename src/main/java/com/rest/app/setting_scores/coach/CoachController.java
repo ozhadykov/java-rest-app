@@ -14,7 +14,7 @@ public class CoachController {
     // define a constructor for dependency injection
     @Autowired
     public CoachController(
-            @Qualifier("cricketCoach") Coach coach
+            @Qualifier("aquatic") Coach coach
     ) {
         System.out.println("in constructor: " + getClass().getSimpleName());
         myCoach = coach;
