@@ -30,8 +30,25 @@ public class SettingScoresApplication {
 
 			//queryForStudentsByLastName(studentDAO);
 
-			updateStudent(studentDAO);
+			//updateStudent(studentDAO);
+
+			//deleteStudent(studentDAO);
+
+			deleteAllStudents(studentDAO);
 		};
+	}
+
+	private void deleteAllStudents(StudentDAO studentDAO) {
+		// deleting all students
+		System.out.println("Deleting all students");
+		int numRowsDeleted = studentDAO.deleteAll();
+		System.out.println("Deleted " + numRowsDeleted + " students");
+	}
+
+	private void deleteStudent(StudentDAO studentDAO) {
+		int studentId = 2;
+		System.out.println("Deleting student with ID: " + studentId);
+		studentDAO.delete(studentId);
 	}
 
 	private void updateStudent(StudentDAO studentDAO) {
