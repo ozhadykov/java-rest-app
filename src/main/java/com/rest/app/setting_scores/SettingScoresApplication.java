@@ -20,8 +20,31 @@ public class SettingScoresApplication {
 		return runner -> {
 			//createStudent(studentDAO);
 
-			createMultipleStudents(studentDAO);
+			//createMultipleStudents(studentDAO);
+
+			readStudent(studentDAO);
 		};
+	}
+
+	private void readStudent(StudentDAO studentDAO) {
+
+		// create a student object
+		System.out.println("Creating a new Student...");
+		Student student = new Student("Lol", "Kek", "kek@mail.com");
+		// save the student
+		System.out.println("Saving student...");
+		studentDAO.save(student);
+
+		// display id of the saved student
+		int theId = student.getId();
+		System.out.println("Saved Student. ID: " + theId);
+
+		// retrieve student based on the id
+		System.out.println("Retrieving student with id: " + theId);
+		Student myStudent = studentDAO.findById(theId);
+
+		// display student
+		System.out.println("Found student: " + myStudent.toString());
 	}
 
 	private void createMultipleStudents(StudentDAO studentDAO) {

@@ -5,4 +5,6 @@ import com.rest.app.setting_scores.entity.Student;
 public interface StudentDAO {
 
     void save(Student student);
+
+    Student findById(Integer id);
 }
