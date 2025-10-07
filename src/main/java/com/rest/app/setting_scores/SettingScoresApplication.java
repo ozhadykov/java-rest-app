@@ -28,8 +28,28 @@ public class SettingScoresApplication {
 
 			//queryForStudents(studentDAO);
 
-			queryForStudentsByLastName(studentDAO);
+			//queryForStudentsByLastName(studentDAO);
+
+			updateStudent(studentDAO);
 		};
+	}
+
+	private void updateStudent(StudentDAO studentDAO) {
+		// retrieve student based on the id: primary key
+		System.out.println("Getting student with id: 1");
+		int studentId = 1;
+		Student theStudent = studentDAO.findById(studentId);
+
+		// change the first name to
+		System.out.println("Updating student with id: " + studentId);
+		theStudent.setFirstName("Balumba");
+
+		// update the student
+		System.out.println("Updated student with id: 1");
+		studentDAO.update(theStudent);
+
+		// display the student
+		System.out.println(theStudent);
 	}
 
 	private void queryForStudentsByLastName(StudentDAO studentDAO) {
