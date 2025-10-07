@@ -7,6 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.List;
+
 @SpringBootApplication
 public class SettingScoresApplication {
 
@@ -22,8 +24,21 @@ public class SettingScoresApplication {
 
 			//createMultipleStudents(studentDAO);
 
-			readStudent(studentDAO);
+			//readStudent(studentDAO);
+
+			queryForStudents(studentDAO);
 		};
+	}
+
+	private void queryForStudents(StudentDAO studentDAO) {
+
+		// get a list of students
+		List<Student> theStudents = studentDAO.findAll();
+
+		// display list of students
+		for (Student tempStudent : theStudents) {
+			System.out.println(tempStudent);
+		}
 	}
 
 	private void readStudent(StudentDAO studentDAO) {
@@ -50,7 +65,7 @@ public class SettingScoresApplication {
 	private void createMultipleStudents(StudentDAO studentDAO) {
 		// create the student object
 		System.out.println("Creating a new Student objects...");
-		Student tempStudent1 = new Student("Omar", "Zhadykov", "omar@test.com");
+		Student tempStudent1 = new Student("Omar", "omar@test.com", "Zhadykov");
 		Student tempStudent2 = new Student("Vivi", "Zhadykov", "vivi@test.com");
 		Student tempStudent3 = new Student("John", "Zhadykov", "John@test.com");
 
