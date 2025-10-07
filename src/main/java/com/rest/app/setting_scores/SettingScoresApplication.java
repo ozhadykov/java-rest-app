@@ -26,8 +26,24 @@ public class SettingScoresApplication {
 
 			//readStudent(studentDAO);
 
-			queryForStudents(studentDAO);
+			//queryForStudents(studentDAO);
+
+			queryForStudentsByLastName(studentDAO);
 		};
+	}
+
+	private void queryForStudentsByLastName(StudentDAO studentDAO) {
+
+		List<Student> theStudents = studentDAO.findByLastName("omar@test.com");
+
+		if (theStudents.isEmpty()) {
+			System.out.println("No students found");
+		} else {
+			for (Student student : theStudents) {
+				System.out.println(student);
+
+			}
+		}
 	}
 
 	private void queryForStudents(StudentDAO studentDAO) {
