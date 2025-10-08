@@ -22,7 +22,7 @@ public class SettingScoresApplication {
 		return runner -> {
 			//createStudent(studentDAO);
 
-			//createMultipleStudents(studentDAO);
+			createMultipleStudents(studentDAO);
 
 			//readStudent(studentDAO);
 
@@ -34,7 +34,7 @@ public class SettingScoresApplication {
 
 			//deleteStudent(studentDAO);
 
-			deleteAllStudents(studentDAO);
+			//deleteAllStudents(studentDAO);
 		};
 	}
 
